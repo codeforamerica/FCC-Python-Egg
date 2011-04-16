@@ -31,6 +31,7 @@ class TestBroadbandAPI (unittest.TestCase):
     result = self.bb.request(lat=37, long=-122)
 
     self.assertTrue(result['status'] == 'OK')
+    self.assertTrue('SpeedTestCounty' in result)
   
   # Does Chicago exist?
   def test_Chicago(self):
