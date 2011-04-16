@@ -13,5 +13,5 @@ class BaseAPIRequest:
   # Requests the API and returns the JSON object.
   def request(self, **args):
     self.format_url(**args)
-    object = json.loads("".join([l for l in urllib.urlopen(self.url)]))
+    object = json.loads("".join([l for l in urllib.urlopen(self.formatted_url)]))
     return object

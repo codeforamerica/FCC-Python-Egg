@@ -7,12 +7,14 @@ class BroadbandApi(BaseAPIRequest):
     BaseAPIRequest.__init__(self, "http://data.fcc.gov/api/speedtest/find?latitude=%s&longitude=%s&format=json")
 
   def format_url(self, **args):
-    self.url = self.url % (args['lat'], args['long'])
+    self.formatted_url = self.url % (args['lat'], args['long'])
 
   # Pass in LATitude and LONGitude into this function and get back a JSON object
   # indicating measured broadband speed.
   def request(self, **args):
     return BaseAPIRequest.request(self, **args)
+
+
 
 
 # Demonstration of how to use BroadbandApi
