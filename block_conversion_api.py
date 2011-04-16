@@ -10,5 +10,5 @@ class BlockConversionAPI(GenericLatLongAPI):
 
 # Sample use of BlockConversionAPI
 if __name__ == "__main__":
-  bb = BroadbandApi()
-  print bb.request(lat=37, long=-122) # (Should be San Francisco)
+  bc = BlockConversionAPI()
+  print bc.request(lat=37, long=-122) # (Should be San Francisco)
