@@ -4,11 +4,11 @@ from generic_api import *
 
 class BroadbandApi(GenericLatLongAPI):
   def __init__(self):
-    GenericLatLongAPI.__init__(self, "http://data.fcc.gov/api/speedtest/find?latitude=%s&longitude=%s&format=json")
+    GenericLatLongAPI.__init__(self, "http://data.fcc.gov/api/speedtest/find")
 
 
 
 # Sample use of BroadbandApi
 if __name__ == "__main__":
   bb = BroadbandApi()
-  print bb.request(lat=37, long=-122) # (Should be San Francisco)
+  print bb.request(latitude=37, longitude=-122) # (Should be San Francisco)
