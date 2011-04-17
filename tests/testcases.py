@@ -4,11 +4,13 @@ import unittest
 sys.path.append('../')
 
 from broadband_api import *
+from frn_api import *
 from block_conversion_api import *
 
 class TestBroadbandAPI (unittest.TestCase):
   def setUp(self):
     self.bb = BroadbandApi()
+    self.frnapi = FrnApi()
   
 
   #Sweep across the US and compare to precomputed values.
@@ -47,6 +49,27 @@ class TestBroadbandAPI (unittest.TestCase):
     result = self.bb.request(latitude=35, longitude=35)
     
     self.assertTrue(result['status'] == 'Fail')
+
+  def test_FRN(self):
+    result = self.frnapi.request(frn='0017855545')
+    self.assertTrue(result['Info']['frn'] == '0017855545')
+
+  def test_companyName(self):
+    result = self.frnapi.request(frn='0017855545')
+    self.assertTrue(result['Info']['companyName']=='Cygnus Telecommunications Corporation')
+  
+  def test_FRNapiIsDict(self):
+    result1 = self.frnapi.request(stateCode='IL')
+    result2 = self.frnapi.request(frn='0017855545')
+    self.assertTrue(type(result1)==type({}) and type(result2)==type({}))
+  def test_CygnusInIL(self):
+    result = self.frnapi.request(stateCode='IL')
+    #print result['Frns']
+    #Cygnus Telecommunications Corporation
+    self.assertTrue('Cygnus Telecommunications Corporation' in [x['companyName'] for x in result['Frns']['Frn']])
+
+  
+
 
 
 

@@ -31,7 +31,7 @@ class BaseAPIRequest:
   # Requests the API and returns the JSON object.
   def request(self, **args):
     self.format_url(**args)
-    
+    #print self.formatted_url
     t = urllib.urlopen(self.formatted_url).read().strip()
     if t.startswith("callback("):
       t=t[t.index("(")+1:-1]
