@@ -13,6 +13,10 @@ class NonexistentStyleException(Exception):
   def __str__(self):
     return "The requested API style was invalid."
 
+class MustBeOrderedException(Exception):
+  def __str__(self):
+    return "The arguments you pass to the SBA API must be ordered."
+
 
 # Perform requests to generic APIs.
 
@@ -46,16 +50,27 @@ class BaseAPIRequest:
   def __format_url_weird_style(self, *ordered_args, **args):
     """
     Format the url with the arguments in the weird style given by SBA.
+    arg1/arg2/arg3.json
     """
 
-    self.formatted_url = self.url + args["type"] + ".json"
+    append = ""
+    for arg in ordered_args: append += str(arg) + "/"
+    append = append[:-1] #Take off last '/'
+
+
+    self.formatted_url = self.url + append + ".json"
 
   # Formats a URL with the provided keyword arguments. 
   def format_url(self, *ordered_args, **args):
     if self.api_style == PHP_STYLE:
       self.__format_url_php_style(*ordered_args, **args)
     elif self.api_style == SBA_WEIRD_STYLE:
-      self.__format_url_weird_style(*ordered_args, **args)
+      print ordered_args
+      print args
+      if len(args) != 0:
+        raise MustBeOrderedException # MUST be ordered.
+      
+      self.__format_url_weird_style(*ordered_args) 
     else:
       raise NonexistentStyleException
 
@@ -107,7 +122,7 @@ class GenericAPI:
   # Creates a function on the current class.
   def bind_closure(self, number):
       def generic_api_call(*ordered_args, **kwargs):
-        self.api_objects[number].format_url(**kwargs)
-        return self.api_objects[number].request(**kwargs)
+        self.api_objects[number].format_url(*ordered_args, **kwargs)
+        return self.api_objects[number].request(*ordered_args, **kwargs)
       
       self.api_functions.append(generic_api_call)

@@ -2,7 +2,7 @@ from generic_api import *
 
 # Simple Python wrapper around the Broadband API provided by the FCC.
 
-APIS = [ ("get_licenses", "http://api.sba.gov/license_permit/" )
+APIS = [ ("get_data", "http://api.sba.gov/license_permit/by_business_type/")
        ]
 
 class SBABusinessesApi(GenericAPI):
@@ -12,5 +12,5 @@ class SBABusinessesApi(GenericAPI):
 
 # Sample use of BroadbandApi
 if __name__ == "__main__":
-  bb = BroadbandApi()
-  print bb.get_data(latitude=37, longitude=-122) # (Should be San Francisco)
+  bb = SBABusinessesApi()
+  print bb.get_data("General Business Licenses") # (Should be San Francisco)
