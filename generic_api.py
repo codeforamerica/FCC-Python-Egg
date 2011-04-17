@@ -8,8 +8,17 @@ class BaseAPIRequest:
     self.url = url
 
   #Inherit this method to describe how to format URLs.
-  def format_url(self):
-    pass
+  def format_url(self, **args):
+    args["format"] = "json"
+
+    append = ""
+
+    for arg in args:
+      append += str(arg) + "=" + str(args[arg]) + "&"
+    
+    append = append[:-1]
+
+    self.formatted_url = self.url + "?" + append
 
   # Requests the API and returns the JSON object.
   def request(self, **args):
@@ -28,9 +37,6 @@ class BaseAPIRequest:
 class GenericLatLongAPI(BaseAPIRequest):
   def __init__(self, url):
     self.url = url
-  
-  def format_url(self, **args):
-    self.formatted_url = self.url % (args['lat'], args['long'])
 
   def request(self, **args):
     return BaseAPIRequest.request(self, **args)

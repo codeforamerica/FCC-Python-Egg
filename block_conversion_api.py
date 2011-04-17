@@ -1,10 +1,10 @@
 from generic_api import *
 
-# Simple Python wrapper around the Broadband API provided by the FCC.
+# Simple Python wrapper around the Block Conversion API provided by the FCC.
 
 class BlockConversionAPI(GenericLatLongAPI):
   def __init__(self):
-    GenericLatLongAPI.__init__(self, "http://data.fcc.gov/api/block/find?latitude=%s&longitude=%s&format=json")
+    GenericLatLongAPI.__init__(self, "http://data.fcc.gov/api/block/find")
 
 
 
