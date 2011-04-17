@@ -2,9 +2,10 @@ from generic_api import *
 
 # Simple Python wrapper around the Broadband API provided by the FCC.
 
-APIS = [("get_data", "http://data.fcc.gov/api/speedtest/find")]
+APIS = [ ("get_licenses", "http://api.sba.gov/license_permit/" )
+       ]
 
-class BroadbandApi(GenericAPI):
+class SBABusinessesApi(GenericAPI):
   def __init__(self):
     GenericAPI.__init__(self, APIS)
 
