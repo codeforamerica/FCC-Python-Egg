@@ -4,13 +4,13 @@ import unittest
 sys.path.append('../')
 
 from broadband_api import *
-from frn_api import *
+from FRNConversionsAPI import *
 from block_conversion_api import *
 
 class TestBroadbandAPI (unittest.TestCase):
   def setUp(self):
     self.bb = BroadbandApi()
-    self.frnapi = FrnApi()
+    self.frnapi = FRNConversionsAPI()
   
 
   #Sweep across the US and compare to precomputed values.
@@ -51,19 +51,19 @@ class TestBroadbandAPI (unittest.TestCase):
     self.assertTrue(result['status'] == 'Fail')
 
   def test_FRN(self):
-    result = self.frnapi.request(frn='0017855545')
+    result = self.frnapi.getInfo(frn='0017855545')
     self.assertTrue(result['Info']['frn'] == '0017855545')
 
   def test_companyName(self):
-    result = self.frnapi.request(frn='0017855545')
+    result = self.frnapi.getInfo(frn='0017855545')
     self.assertTrue(result['Info']['companyName']=='Cygnus Telecommunications Corporation')
   
   def test_FRNapiIsDict(self):
-    result1 = self.frnapi.request(stateCode='IL')
-    result2 = self.frnapi.request(frn='0017855545')
+    result1 = self.frnapi.getList(stateCode='IL')
+    result2 = self.frnapi.getInfo(frn='0017855545')
     self.assertTrue(type(result1)==type({}) and type(result2)==type({}))
   def test_CygnusInIL(self):
-    result = self.frnapi.request(stateCode='IL')
+    result = self.frnapi.getList(stateCode='IL')
     #print result['Frns']
     #Cygnus Telecommunications Corporation
     self.assertTrue('Cygnus Telecommunications Corporation' in [x['companyName'] for x in result['Frns']['Frn']])
