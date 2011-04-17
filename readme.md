@@ -43,6 +43,7 @@ Here are some ways *you* can contribute:
 * by writing code (**no patch is too small**: fix typos, add comments, clean up inconsistent whitespace)
 * by refactoring code
 * by resolving [issues](http://github.com/cfalabs/fcc_reboot/issues)
+* there won't be any issues, but we are obligated to say that anyway
 * by reviewing patches
 
 Submitting an Issue
