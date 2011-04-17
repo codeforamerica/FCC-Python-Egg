@@ -6,30 +6,12 @@ from generic_api import *
 # functions.
 
 class LicenseViewAPI:
-  class GetLicenseAPI(BaseAPIRequest):
-    def __init__(self, url):
-      self.url = url
-    
-    def format_url(self, **args):
-      self.formatted_url = self.url % (args['search_value'])
-
-    def request(self, **args):
-      return BaseAPIRequest.request(self, **args)
-
-  """
-  class GetLicenseAPI(BaseAPIRequest):
-    def __init__(self, url):
-      self.url = url
-    
-    def format_url(self, **args):
-      self.formatted_url = self.url % (args['search_value'])
-
-    def request(self, **args):
-      return BaseAPIRequest.request(self, **args)
-  """
-
   def __init__(self):
-    self.get_license_api = LicenseViewAPI.GetLicenseAPI("http://data.fcc.gov/api/license-view/basicSearch/getLicenses?searchValue=%s&format=json")
+    self.get_license_api = BaseAPIRequest("http://data.fcc.gov/api/license-view/basicSearch/getLicenses")
+    self.get_license_api = BaseAPIRequest("http://data.fcc.gov/api/license-view/basicSearch/getLicenses")
+
+
+
 
   # Example usage:
   #
@@ -43,4 +25,4 @@ class LicenseViewAPI:
 # Sample use of BlockConversionAPI
 if __name__ == "__main__":
   bc = LicenseViewAPI()
-  print bc.get_licenses(search_value = "Verizon Wireless")
+  print bc.get_licenses(searchValue = "Verizon Wireless")
