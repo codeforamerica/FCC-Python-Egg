@@ -24,14 +24,14 @@ class FrnApi(BaseAPIRequest):
 
   def format_url(self, **args):
     if 'stateCode' in args:
-      self.url=self.url_getList
+      self.formatted_url=self.url_getList
       #if not 'multi' in args: args['multi']='Yes'
       #self.formatted_url=self.url_getList % (args['stateCode'],args['multi'])
     elif 'frn' in args:
-      self.url=self.url_getInfo
+      self.formatted_url=self.url_getInfo
       #self.formatted_url = self.url_getInfo % (args['frn'])
     else:
-      self.url=self.url_getList
+      self.formatted_url=self.url_getList
       #print self.url
 
   def request(self, **args):
