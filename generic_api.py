@@ -14,7 +14,12 @@ class BaseAPIRequest:
   # Requests the API and returns the JSON object.
   def request(self, **args):
     self.format_url(**args)
-    object = json.loads("".join([l for l in urllib.urlopen(self.formatted_url)]))
+    
+    t = urllib.urlopen(self.formatted_url).read().strip()
+    if t.startswith("callback("):
+      t=t[t.index("(")+1:-1]
+    return json.loads(t)
+    #object = json.loads("".join([l for l in urllib.urlopen(self.formatted_url)]))
     return object
 
 
