@@ -18,25 +18,27 @@ class FrnApi(BaseAPIRequest):
   """
 
   def __init__(self):
-    self.url_getList="http://data.fcc.gov/api/frn/getList?stateCode=%s&multi=%s"
-    self.url_getInfo="http://data.fcc.gov/api/frn/getInfo?frn=%s"
+    self.url_getList="http://data.fcc.gov/api/frn/getList"
+    self.url_getInfo="http://data.fcc.gov/api/frn/getInfo"
   
 
-  def format_url(self, **args):
+  def set_url(self, **args):
     if 'stateCode' in args:
-      self.formatted_url=self.url_getList
-      #if not 'multi' in args: args['multi']='Yes'
+      self.url=self.url_getList
+      if not 'multi' in args: args['multi']='Yes'
       #self.formatted_url=self.url_getList % (args['stateCode'],args['multi'])
     elif 'frn' in args:
-      self.formatted_url=self.url_getInfo
+      self.url=self.url_getInfo
       #self.formatted_url = self.url_getInfo % (args['frn'])
     else:
-      self.formatted_url=self.url_getList
+      self.url=self.url_getList
       #print self.url
+    return args
 
   def request(self, **args):
-    self.format_url(**args)
-    BaseAPIRequest.request(self,**args)
+    args=self.set_url(**args)
+    #if not 'multi' in args: args['multi'] = 'Yes'
+    return BaseAPIRequest.request(self,**args)
 
 
 # Demonstration of how to use BroadbandApi
@@ -49,8 +51,10 @@ if __name__ == "__main__":
   x=bb.request(stateCode='IL')
   print type(x)
   print len(x)
-  print x
+  print x.keys()
 
+  #print x
+  
   print
   x=bb.request(frn='0017855545')
   print type(x)
