@@ -9,6 +9,8 @@ def build_api_list(list, base):
   
   return result
 
+
+#These are the function calls that the SBABusinessesAPI object exposes.
 list = [ "by_category"
        , "all_by_state"
        , "by_business_type"
@@ -20,12 +22,12 @@ list = [ "by_category"
 
 APIS = build_api_list(list, "http://api.sba.gov/license_permit")
 
-class SBABusinessesApi(GenericAPI):
+class SBABusinessesAPI(GenericAPI):
   def __init__(self):
     GenericAPI.__init__(self, APIS)
 
 
 # Sample use of BroadbandApi
 if __name__ == "__main__":
-  bb = SBABusinessesApi()
+  bb = SBABusinessesAPI()
   print bb.by_category("doing business as") # (Should be San Francisco)

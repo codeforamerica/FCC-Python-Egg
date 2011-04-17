@@ -82,6 +82,8 @@ class BaseAPIRequest:
     if t.startswith("callback("):
       t=t[t.index("(")+1:-1]
 
+    print self.formatted_url
+
     try:
       return json.loads(t)
 
