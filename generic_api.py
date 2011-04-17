@@ -75,9 +75,6 @@ class GenericAPI:
 
 
 
-
-
-
 # Wraps any API that just uses Latitude and Longitude.
 
 #TODO: This is no longer necessary...

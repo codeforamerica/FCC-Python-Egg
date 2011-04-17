@@ -26,19 +26,19 @@ class TestBroadbandAPI (unittest.TestCase):
     results = [ True , True , False , False , False , False , False , False , False , False , ]
 
     for x in range(10):
-      self.assertTrue((self.bb.request(latitude=41, longitude=-86 + x * 10)['status'] == 'OK') == results[x])
+      self.assertTrue((self.bb.get_data(latitude=41, longitude=-86 + x * 10)['status'] == 'OK') == results[x])
 
 
   # Does SF exist?
   def test_SF(self):
-    result = self.bb.request(latitude=37, longitude=-122)
+    result = self.bb.get_data(latitude=37, longitude=-122)
 
     self.assertTrue(result['status'] == 'OK')
     self.assertTrue('SpeedTestCounty' in result)
   
   # Does Chicago exist?
   def test_Chicago(self):
-    result = self.bb.request(latitude=41, longitude=-87)
+    result = self.bb.get_data(latitude=41, longitude=-87)
 
     self.assertTrue(result['status'] == 'OK')
 
@@ -46,7 +46,7 @@ class TestBroadbandAPI (unittest.TestCase):
   # Test the middle of nowhere (Disclaimer: I have no idea where 
   # this is, so it may not be in the middle of nowhere)
   def test_Nowhere(self):
-    result = self.bb.request(latitude=35, longitude=35)
+    result = self.bb.get_data(latitude=35, longitude=35)
     
     self.assertTrue(result['status'] == 'Fail')
 
