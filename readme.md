@@ -31,7 +31,7 @@ Usage Examples
 
 FCC API Docs
 ------------
-1. [Spectrum Dashboard](http://www.fcc.gov/developer/spectrum-dashboard-api)
+1. [Broadband Speed Test](http://www.fcc.gov/developer/consumer-broadband-test-api)
 2. [License View](http://www.fcc.gov/developer/license-view-api)
 3. [Census Block](http://www.fcc.gov/developer/census-block-conversions-api)
 4. [FCC Registration Number Conversions](http://www.fcc.gov/developer/frn-conversions-api)
