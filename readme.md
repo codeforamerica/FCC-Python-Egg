@@ -28,12 +28,13 @@ Usage Examples
     # Use it!
     lv.get_licenses(searchValue = "Verizon Wireless")
 
-	FCC API Docs
-	------------
-	1. [Spectrum Dashboard](http://www.fcc.gov/developer/spectrum-dashboard-api)
-	2. [License View](http://www.fcc.gov/developer/license-view-api)
-	3. [Census Block](http://www.fcc.gov/developer/census-block-conversions-api)
-	4. [FCC Registration Number Conversions](http://www.fcc.gov/developer/frn-conversions-api)
+
+FCC API Docs
+------------
+1. [Spectrum Dashboard](http://www.fcc.gov/developer/spectrum-dashboard-api)
+2. [License View](http://www.fcc.gov/developer/license-view-api)
+3. [Census Block](http://www.fcc.gov/developer/census-block-conversions-api)
+4. [FCC Registration Number Conversions](http://www.fcc.gov/developer/frn-conversions-api)
 
     
 Contributing
