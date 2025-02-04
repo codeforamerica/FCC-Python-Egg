@@ -1,8 +1,0 @@
-setup.py
-python_fcc.egg-info/PKG-INFO
-python_fcc.egg-info/SOURCES.txt
-python_fcc.egg-info/dependency_links.txt
-python_fcc.egg-info/top_level.txt
-tests/__init__.py
-tests/__main__.py
-tests/testcases.py

@@ -1,1 +1,4 @@
 *.pyc
+build/
+dist/
+python_fcc.egg-info/
