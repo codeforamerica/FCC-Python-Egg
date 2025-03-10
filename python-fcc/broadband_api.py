@@ -12,4 +12,4 @@ class BroadbandApi(GenericAPI):
 # Sample use of BroadbandApi
 if __name__ == "__main__":
   bb = BroadbandApi()
-  print bb.get_data(latitude=37, longitude=-122) # (Should be San Francisco)
+  print(bb.get_data(latitude=37, longitude=-122)) # (Should be San Francisco)

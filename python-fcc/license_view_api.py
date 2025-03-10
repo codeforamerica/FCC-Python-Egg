@@ -19,4 +19,4 @@ class LicenseViewAPI(GenericAPI):
 # Sample use of BlockConversionAPI
 if __name__ == "__main__":
   bc = LicenseViewAPI()
-  print bc.get_licenses(searchValue = "Verizon Wireless")
+  print(bc.get_licenses(searchValue = "Verizon Wireless"))

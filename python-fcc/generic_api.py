@@ -65,8 +65,8 @@ class BaseAPIRequest:
     if self.api_style == PHP_STYLE:
       self.__format_url_php_style(*ordered_args, **args)
     elif self.api_style == SBA_WEIRD_STYLE:
-      print ordered_args
-      print args
+      print(ordered_args)
+      print(args)
       if len(args) != 0:
         raise MustBeOrderedException # MUST be ordered.
       
@@ -82,7 +82,7 @@ class BaseAPIRequest:
     if t.startswith("callback("):
       t=t[t.index("(")+1:-1]
 
-    print self.formatted_url
+    print(self.formatted_url)
 
     try:
       return json.loads(t)
