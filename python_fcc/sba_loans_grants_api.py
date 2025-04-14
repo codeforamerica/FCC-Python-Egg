@@ -32,4 +32,4 @@ class SBALoansGrantsAPI(GenericAPI):
 # Sample use of BroadbandApi
 if __name__ == "__main__":
   bb = SBALoansGrantsAPI()
-  print bb.by_category("doing business as") # (Should be San Francisco)
+  print(bb.by_category("doing business as")) # (Should be San Francisco)

@@ -1,4 +1,4 @@
-from generic_api import *
+from .generic_api import *
 
 # Simple Python wrapper around the License View API provided by the FCC.
 
@@ -19,4 +19,4 @@ class LicenseViewAPI(GenericAPI):
 # Sample use of BlockConversionAPI
 if __name__ == "__main__":
   bc = LicenseViewAPI()
-  print bc.get_licenses(searchValue = "Verizon Wireless")
+  print(bc.get_licenses(searchValue = "Verizon Wireless"))

@@ -30,4 +30,4 @@ class SBABusinessesAPI(GenericAPI):
 # Sample use of BroadbandApi
 if __name__ == "__main__":
   bb = SBABusinessesAPI()
-  print bb.by_category("doing business as") # (Should be San Francisco)
+  print(bb.by_category("doing business as")) # (Should be San Francisco)
