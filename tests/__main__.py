@@ -1,5 +1,4 @@
-from tests.testcases import *
-from tests.testutils import *
+from .testcases import *
 
-if __name__ == '__main__':
-      unittest.main()
+if __name__ == "__main__":
+    unittest.main()

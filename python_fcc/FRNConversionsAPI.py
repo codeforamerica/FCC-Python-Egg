@@ -32,14 +32,14 @@ if __name__ == "__main__":
   bb = FRNConversionsAPI()
 
   x=bb.getList(stateCode='IL')
-  print type(x)
-  print len(x)
-  print x.keys()
+  print(type(x))
+  print(len(x))
+  print(x.keys())
 
   #print x
   
   print
   x=bb.getInfo(frn='0017855545')
-  print type(x)
-  print len(x)
-  print x
+  print(type(x))
+  print(len(x))
+  print(x)

@@ -10,4 +10,4 @@ class BlockConversionAPI(GenericAPI):
 # Sample use of BlockConversionAPI
 if __name__ == "__main__":
   bc = BlockConversionAPI()
-  print bc.get_block(lat=41, long=-87) # (Should be San Francisco)
+  print(bc.get_block(lat=41, long=-87)) # (Should be San Francisco)
